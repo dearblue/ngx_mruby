@@ -1,7 +1,11 @@
+MRuby::Lockfile.disable rescue nil
+
 MRuby::Build.new('host') do |conf|
   toolchain :gcc
+  conf.enable_debug
 
   conf.defines << 'MRB_STR_LENGTH_MAX=10485760'
+
   conf.gembox 'full-core'
 
   conf.cc do |cc|
@@ -20,7 +24,7 @@ MRuby::Build.new('host') do |conf|
   conf.gem github: 'iij/mruby-dir'
   conf.gem github: 'iij/mruby-digest'
   conf.gem github: 'iij/mruby-process'
-  conf.gem github: 'mattn/mruby-json'
+  conf.gem github: 'dearblue/mruby-json', branch: "arena" # https://github.com/mattn/mruby-json/pull/49
   conf.gem github: 'mattn/mruby-onig-regexp'
   conf.gem github: 'matsumotory/mruby-redis'
   conf.gem github: 'matsumotory/mruby-vedis'

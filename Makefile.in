@@ -8,7 +8,7 @@
 #
 NUM_THREADS?= 1
 MAKEFLAGS=-j $(NUM_THREADS)
-RAKE=rake -j $(NUM_THREADS)
+RAKE=rake -m
 
 NGX_MRUBY_ROOT=$(shell pwd)
 NGX_SRC_ROOT=@NGX_SRC_ROOT@
